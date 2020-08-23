@@ -194,3 +194,34 @@ class MyUser extends User{
     }
 }
 ```
+
+## interface example
+```typescript
+interface User{
+    name:string,
+    age:number
+}
+const user: User = {name:"John", age:22}
+
+
+interface User2{
+    name:string,
+    [propName:string]: any // could contain other props
+}
+const user2:User2 = {
+    name:"user2",
+    secondName:"user2sn"
+}
+
+
+interface User3 {
+    name:string,
+    getPass():string
+}
+class MyClass implements User3{
+    name:string = "userName";
+    getPass():string{
+        return "string"
+    }
+}
+```
