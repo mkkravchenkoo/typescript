@@ -225,3 +225,13 @@ class MyClass implements User3{
     }
 }
 ```
+
+## generic example
+```typescript
+const last = <T>(arr:T[]): T => {
+    return arr[arr.length-1];
+}
+
+const l1 = last([1,2,3]);
+const l2 = last<string>(["a","b","c"]);
+```
