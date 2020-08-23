@@ -112,3 +112,85 @@ const infinitiveLoop = ():never => {
     type MyType = string;
     let id:MyType = "12" 
 ```
+
+## Function example
+```typescript
+    const sum = (arg1:number, arg2:number):number => arg1+arg2;
+```
+
+## Object example
+```typescript
+   const myObj:{name:string, age:number} = {name:"John", age:20};
+
+    // create type for persons
+    type Person = {
+        name:string,
+        age:number,
+        nickName?:string,
+    }
+    const user1:Person = {name:"James", age:20, nickName:"James123"} 
+    const user2:Person = {name:"Smith", age:20} 
+```
+
+## Class example
+```typescript
+    class User {
+        public name:string;
+        private nickName:string;
+        protected age:number;
+        readonly pass:string;
+        position="developer";
+        
+        constructor(name:string, nickName:string, age:number, pass:string, position?:string) {
+            this.name = name;
+            this.nickName = nickName;
+            this.age = age;
+            this.pass = pass;
+        }
+    }
+
+const myUser = new User("John", "john123", 20, "123");
+```
+## Class with static attribute and inheritance example
+```typescript
+   
+class User {
+  static secret = 123;
+  private nickName:string;
+
+  constructor(public name:string, public age:number){}   
+
+  getFull():string {
+    return this.name+User.secret
+  }
+
+}
+class SecondUser extends User{
+    name:string = "second user";
+
+    constructor(age: number){
+        super(name, age)
+    }
+
+}
+
+const user = new User("aaa", 10);
+const secondUser = new SecondUser(100)
+```
+## abstract Class example
+```typescript
+abstract class User{
+    constructor(public name:string, public age:number) {}
+    
+    greet():void{
+        console.log(this.name)
+    }
+    abstract getPass():string
+}
+
+class MyUser extends User{
+    getPass(): string{
+        return this.age+this.name
+    }
+}
+```
